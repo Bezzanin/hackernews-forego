@@ -25,7 +25,10 @@ class HomeScreen extends Component {
         <StatusBar barStyle="dark-content" />
         <Text style={styles.title}>Top 20 News</Text>
         <Sorter sortByScore={this.props.sortByScore} />
-        <Filter filterByScore={this.props.filterByScore} />
+        <Filter
+          filterByScore={this.props.filterByScore}
+          filterByScoreReset={this.props.getNews}
+        />
         <ListContainer news={this.props.newsFeed} />
       </ScrollView>
     );

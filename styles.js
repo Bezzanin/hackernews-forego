@@ -37,6 +37,10 @@ const constantStyles = {
   row: {
     flexDirection: "row"
   },
+  rowButtons: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
   title: {
     fontSize: 28,
     marginVertical: 8,
