@@ -23,7 +23,7 @@ export default function ListItem({
             <Text style={styles.cardLink}>{by}</Text>
           </TouchableOpacity>
         </View>
-        <Text>Published: {moment(time).format("MMMM Do YYYY, h:mm:ss a")}</Text>
+        <Text>Published: {moment(time * 1000).format("L")}</Text>
         <Text>Score: {score}</Text>
         <Button
           onPress={() => onPressStoryLink(url)}
