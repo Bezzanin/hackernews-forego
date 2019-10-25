@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StatusBar } from "react-native";
+import { ScrollView, Text, StatusBar } from "react-native";
 import { connect } from "react-redux";
-import { getNews, sortByScore } from "../store/actions";
+import { getNews, sortByScore, filterByScore } from "../store/actions";
 import ListContainer from "../components/ListContainer";
 import styles from "../styles";
 import Sorter from "../components/Sorter";
+import Filter from "../components/Filter";
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -20,12 +21,13 @@ class HomeScreen extends Component {
       console.log(news.score);
     });
     return (
-      <View>
+      <ScrollView>
         <StatusBar barStyle="dark-content" />
         <Text style={styles.title}>Top 20 News</Text>
         <Sorter sortByScore={this.props.sortByScore} />
+        <Filter filterByScore={this.props.filterByScore} />
         <ListContainer news={this.props.newsFeed} />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -37,5 +39,5 @@ export default connect(
     errorMessage: state.defaultReducer.errorMessage,
     isLoading: state.defaultReducer.isLoading
   }),
-  { getNews, sortByScore }
+  { getNews, sortByScore, filterByScore }
 )(HomeScreen);

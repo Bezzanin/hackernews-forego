@@ -30,17 +30,12 @@ const reducer = (state = initialState, action) => {
         currentUser: [],
         errorMessage: action.payload
       };
-    case actions.SORT_BY_SCORE_DEFAULT:
+    case actions.SORT_FILTER_DEFAULT:
       return {
         ...state,
         newsFeed: state.newsFeed
       };
     case actions.SORT_BY_SCORE_DES:
-      console.log(
-        state.newsFeed.map(news => {
-          return news.score;
-        })
-      );
       return {
         ...state,
         newsFeed: state.newsFeed.slice().sort((a, b) => {
@@ -48,15 +43,19 @@ const reducer = (state = initialState, action) => {
         })
       };
     case actions.SORT_BY_SCORE_ASC:
-      console.log(
-        state.newsFeed.map(news => {
-          return news.score;
-        })
-      );
       return {
         ...state,
         newsFeed: state.newsFeed.slice().sort((a, b) => {
           return a.score - b.score;
+        })
+      };
+    case actions.FILTER_BY_SCORE:
+      return {
+        ...state,
+        newsFeed: state.newsFeed.slice().filter(news => {
+          return (
+            news.score > action.payload[0] && news.score < action.payload[1]
+          );
         })
       };
     default:

@@ -3,12 +3,14 @@ export const actions = {
   GET_NEWSIDS_FAILURE: "GET_NEWSIDS_FAILURE",
   GET_USER_SUCCESS: "GET_USER_SUCCESS",
   GET_USER_FAILURE: "GET_USER_FAILURE",
-  SORT_BY_SCORE_DEFAULT: "SORT_BY_SCORE_DEFAULT",
+  SORT_FILTER_DEFAULT: "SORT_FILTER_DEFAULT",
   SORT_BY_SCORE_ASC: "SORT_BY_SCORE_ASC",
-  SORT_BY_SCORE_DES: "SORT_BY_SCORE_DES"
+  SORT_BY_SCORE_DES: "SORT_BY_SCORE_DES",
+  FILTER_BY_SCORE: "FILTER_BY_SCORE"
 };
 
 import { getNewsIDs, getUserById } from "../utils/hackerNewsApi";
+import { max } from "moment";
 
 export const getNews = () => {
   return (dispatch, getState) => {
@@ -60,8 +62,17 @@ export const sortByScore = order => {
       });
     } else {
       return dispatch({
-        type: actions.SORT_BY_SCORE_DEFAULT
+        type: actions.SORT_FILTER_DEFAULT
       });
     }
+  };
+};
+
+export const filterByScore = (minScore, maxScore) => {
+  return (dispatch, getState) => {
+    return dispatch({
+      type: actions.FILTER_BY_SCORE,
+      payload: [minScore, maxScore]
+    });
   };
 };

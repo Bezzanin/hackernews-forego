@@ -5,6 +5,9 @@ const constantStyles = {
     alignItems: "center",
     justifyContent: "flex-start"
   },
+  filterContainer: {
+    marginHorizontal: 16
+  },
   cardTitle: {
     fontWeight: "bold",
     fontSize: 24,
