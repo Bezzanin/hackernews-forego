@@ -4,10 +4,18 @@ import store from "./store/store";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./screens/HomeScreen";
+import StoryScreen from "./screens/StoryScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 let RootStack = createStackNavigator({
   HomeScreen: {
     screen: HomeScreen
+  },
+  StoryScreen: {
+    screen: StoryScreen
+  },
+  ProfileScreen: {
+    screen: ProfileScreen
   }
 });
 

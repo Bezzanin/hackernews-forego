@@ -2,7 +2,10 @@ export const actions = {
   GET_NEWSIDS_SUCCESS: "GET_NEWSIDS_SUCCESS",
   GET_NEWSIDS_FAILURE: "GET_NEWSIDS_FAILURE",
   GET_USER_SUCCESS: "GET_USER_SUCCESS",
-  GET_USER_FAILURE: "GET_USER_FAILURE"
+  GET_USER_FAILURE: "GET_USER_FAILURE",
+  SORT_BY_SCORE_DEFAULT: "SORT_BY_SCORE_DEFAULT",
+  SORT_BY_SCORE_ASC: "SORT_BY_SCORE_ASC",
+  SORT_BY_SCORE_DES: "SORT_BY_SCORE_DES"
 };
 
 import { getNewsIDs, getUserById } from "../utils/hackerNewsApi";
@@ -42,5 +45,23 @@ export const getUser = userId => {
           payload: e.message
         });
       });
+  };
+};
+
+export const sortByScore = order => {
+  return (dispatch, getState) => {
+    if (order === "des") {
+      return dispatch({
+        type: actions.SORT_BY_SCORE_DES
+      });
+    } else if (order === "asc") {
+      return dispatch({
+        type: actions.SORT_BY_SCORE_ASC
+      });
+    } else {
+      return dispatch({
+        type: actions.SORT_BY_SCORE_DEFAULT
+      });
+    }
   };
 };

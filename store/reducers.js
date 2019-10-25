@@ -30,6 +30,35 @@ const reducer = (state = initialState, action) => {
         currentUser: [],
         errorMessage: action.payload
       };
+    case actions.SORT_BY_SCORE_DEFAULT:
+      return {
+        ...state,
+        newsFeed: state.newsFeed
+      };
+    case actions.SORT_BY_SCORE_DES:
+      console.log(
+        state.newsFeed.map(news => {
+          return news.score;
+        })
+      );
+      return {
+        ...state,
+        newsFeed: state.newsFeed.slice().sort((a, b) => {
+          return b.score - a.score;
+        })
+      };
+    case actions.SORT_BY_SCORE_ASC:
+      console.log(
+        state.newsFeed.map(news => {
+          return news.score;
+        })
+      );
+      return {
+        ...state,
+        newsFeed: state.newsFeed.slice().sort((a, b) => {
+          return a.score - b.score;
+        })
+      };
     default:
       return state;
   }
