@@ -1,6 +1,6 @@
 # Forego Code Challenge
 
-Code Challenge for forego
+Code Challenge for Gofore
 
 ## List of features that are implemented
 
