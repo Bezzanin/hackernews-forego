@@ -1,4 +1,4 @@
-# Forego Code Challenge
+# GoFore Code Challenge
 
 Code Challenge for Gofore
 
