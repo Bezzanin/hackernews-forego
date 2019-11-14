@@ -10,7 +10,6 @@ export const actions = {
 };
 
 import { getNewsIDs, getUserById } from "../utils/hackerNewsApi";
-import { max } from "moment";
 
 export const getNews = () => {
   return (dispatch, getState) => {

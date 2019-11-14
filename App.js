@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import StoryScreen from "./screens/StoryScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
+// Main Stack Navigation
 let RootStack = createStackNavigator({
   HomeScreen: {
     screen: HomeScreen

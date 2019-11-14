@@ -17,9 +17,6 @@ class HomeScreen extends Component {
   }
 
   render() {
-    this.props.newsFeed.map(news => {
-      console.log(news.score);
-    });
     return (
       <ScrollView>
         <StatusBar barStyle="dark-content" />

@@ -1,5 +1,8 @@
+// file for API calls
+
 var apiURI = "https://hacker-news.firebaseio.com/v0/";
 
+// Function to get news Ids, returns another function that gets news
 export const getNewsIDs = () => {
   return fetch(apiURI + "beststories.json")
     .then(response => {
@@ -13,6 +16,7 @@ export const getNewsIDs = () => {
     });
 };
 
+// Function to get news from list of Ids
 export const getNews = newsIDs => {
   return newsIDs.map(id => {
     return fetch(apiURI + "item/" + id + ".json")
@@ -28,6 +32,7 @@ export const getNews = newsIDs => {
   });
 };
 
+// Function to get user by his Id(name)
 export const getUserById = id => {
   return fetch(apiURI + "user/" + id + ".json")
     .then(response => {
